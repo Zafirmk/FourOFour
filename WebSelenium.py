@@ -3,11 +3,15 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+
+from webdriver_manager.chrome import ChromeDriverManager
+
 import time
 from InstagramSeleniumBot import get_screenshots
 from InstagramSeleniumBot import like_image
 
-driver = webdriver.Chrome('/Users/zafirkhalid/Desktop/ConUHacks/chromedriver')
+# driver = webdriver.Chrome('/Users/zafirkhalid/Desktop/ConUHacks/chromedriver')
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 def scroll():
     driver.execute_script("window.scrollTo(0, 350);")
