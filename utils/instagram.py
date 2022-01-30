@@ -1,25 +1,22 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+import time
+
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-import time
 
-# Initializing stuff
+def instagram(driver, username, password):
+    _ = get_screenshots(driver, username, password)
+    return "./temp/0.png"
 
 def login(driver, username_input, password_input):
-    
-    driver.set_window_position(0, 0)
-    driver.set_window_size(375, 900)
 
+    driver.set_window_size(375, 900)
 
     driver.get("http://www.instagram.com")
 
-    time.sleep(1)
-
     #target username
-    username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='username']")))
-    password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='password']")))
+    username = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='username']")))
+    password = WebDriverWait(driver, 0.5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='password']")))
 
     #enter username and password
     username.clear()
@@ -30,12 +27,8 @@ def login(driver, username_input, password_input):
     #target the login button and click it
     button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
 
-    not_now = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Not Now")]'))).click()
-    not_now2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Not Now")]'))).click()
-
-
-    time.sleep(1.5)
-    
+    not_now = WebDriverWait(driver, 4).until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Not Now")]'))).click()
+    not_now2 = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Not Now")]'))).click()    
 
 def get_elements(driver):
     elements = driver.find_elements_by_xpath("//article[@class='_8Rm4L bLWKA M9sTE _1gNme h0YNM  SgTZ1    ']")
@@ -46,7 +39,7 @@ def get_screenshots(driver, username, password):
     elements = get_elements(driver)
     for i,elem in enumerate(elements):
         driver.execute_script("return arguments[0].scrollIntoView(false);", elem)
-        driver.save_screenshot("image" + str(i) + ".png")
+        driver.save_screenshot("./temp/" + str(i) + ".png")
     return elements
 
 def like_image(driver, num):
