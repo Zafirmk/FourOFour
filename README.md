@@ -8,7 +8,7 @@
 </p>
 
 
-## Deploy locally
+## Deploy locally 
 
 ### Local setup
 
