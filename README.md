@@ -1,6 +1,12 @@
-## Four O’ Four
+# Four O’ Four
 
-SMS Based Headless Browsing
+<h3 align="center">SMS Based Headless Browsing</h3>
+
+
+<p align="center">
+  <img src="assets/logo.png" width="25%">
+</p>
+
 
 ## Deploy locally
 
