@@ -36,6 +36,11 @@ ngrok_url = 'https://89a9-184-162-252-127.ngrok.io' # REPLACE THIS WITH YOUR FOR
 
 Restart the flask server by rerunning the main.py file
 
+Send SMS messages on the following number
+```
++1 (804) 567-8399
+```
+
 ### Twilio setup
 
 Head to Twilio console and select an actie number - click on it and under "Configure" scroll to the bottom. In "Messaging" replace the "A Message comes in" webhook with the same forwarding URL as your set ngrok_url BUT ALSO APPEND '/entry' to it. Click save and it should look like the image below
