@@ -4,7 +4,7 @@
 
 
 <p align="center">
-  <img src="assets/logo.png" width="25%">
+  <a href="https://devpost.com/software/four-o-four"><img src="assets/logo.png" width="25%"></a>
 </p>
 
 
