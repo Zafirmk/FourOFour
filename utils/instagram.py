@@ -5,10 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
 def instagram(driver, username, password):
-    get_screenshots(driver, username, password)
+    _ = get_screenshots(driver, username, password)
     return "./temp/0.png"
 
 def login(driver, username_input, password_input):
+
+    driver.set_window_size(375, 900)
 
     driver.get("http://www.instagram.com")
 
@@ -42,7 +44,6 @@ def get_screenshots(driver, username, password):
     login(driver, username, password)
     time.sleep(1)
     elements = get_elements(driver)
-    print(elements)
     for i,elem in enumerate(elements):
         driver.execute_script("return arguments[0].scrollIntoView(false);", elem)
         driver.save_screenshot("./temp/" + str(i) + ".png")

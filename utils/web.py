@@ -5,7 +5,7 @@ def scroll(driver, amnt="350"):
 
 def website(driver, website):
     driver.get(str(website))
-    time.sleep(1)
+    time.sleep(6)
     for i in range(3):
         driver.save_screenshot("./temp/" + str(i) + ".png")
         scroll(driver, 350*(i+1))
